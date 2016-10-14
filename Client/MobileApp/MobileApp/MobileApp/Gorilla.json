@@ -1,0 +1,11 @@
+﻿{
+  "knownAssemblies": [
+    { "name": "UXDivers.Artina.Shared" },
+    { "name": "FormsPlugin.Iconize" },
+    { "name": "XLabs.Forms" },
+    { "name": "Prism" },
+    { "name": "Prism.Core" },
+    { "name": "Prism.Forms" },
+    { "name": "Prism.Unity.Forms" }
+  ]
+}

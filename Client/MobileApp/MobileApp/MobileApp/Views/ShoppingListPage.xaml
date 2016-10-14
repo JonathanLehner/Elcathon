@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MobileApp.Views.ShoppingListPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:xlabs="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Name="Root"
+             prism:ViewModelLocator.AutowireViewModel="True">
+    <Grid>
+        <Label Text="{Binding Text}" />
+        <ListView GroupDisplayBinding="{Binding Group}"
+                  HasUnevenRows="True"
+                  IsGroupingEnabled="true"
+                  ItemsSource="{Binding ShoppingList}"
+                  RowHeight="40"
+                  SeparatorColor="Black">
+            <!--  Group header template  -->
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid HeightRequest="60"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.GestureRecognizers>
+                                <!--<TapGestureRecognizer Command="{Binding Source={x:Reference Root}, Path=GroupHeaderTapCommand}" CommandParameter="{Binding .}" />-->
+                            </Grid.GestureRecognizers>
+
+                            <Label Grid.Column="1"
+                                   FontAttributes="None"
+                                   FontSize="20"
+                                   Text="{Binding Group}"
+                                   TextColor="Blue"
+                                   VerticalTextAlignment="Center" />
+                            <Label Grid.Column="2" Text="{Binding Price}" />
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid HeightRequest="60" WidthRequest="25">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Margin="5" Source="{Binding Image}" />
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   VerticalOptions="Center" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</ContentPage>

@@ -9,9 +9,11 @@
              prism:ViewModelLocator.AutowireViewModel="True">
     <Grid>
         <Label Text="{Binding Text}" />
-        <ListView GroupDisplayBinding="{Binding Group}"
+        <ListView x:Name="ShoppingListView"
+                  GroupDisplayBinding="{Binding Group}"
                   HasUnevenRows="True"
                   IsGroupingEnabled="true"
+                  ItemSelected="ListView_ItemSelected"
                   ItemsSource="{Binding ShoppingList}"
                   RowHeight="40"
                   SeparatorColor="Black">
@@ -23,22 +25,19 @@
                               HorizontalOptions="FillAndExpand"
                               VerticalOptions="CenterAndExpand">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Grid.GestureRecognizers>
-                                <!--<TapGestureRecognizer Command="{Binding Source={x:Reference Root}, Path=GroupHeaderTapCommand}" CommandParameter="{Binding .}" />-->
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference Root}, Path=GroupHeaderTapCommand}" CommandParameter="{Binding .}" />
                             </Grid.GestureRecognizers>
 
-                            <Label Grid.Column="1"
+                            <Label Grid.Column="0"
+                                   Margin="10,0,0,0"
                                    FontAttributes="None"
                                    FontSize="20"
                                    Text="{Binding Group}"
                                    TextColor="Blue"
                                    VerticalTextAlignment="Center" />
-                            <Label Grid.Column="2" Text="{Binding Price}" />
 
                         </Grid>
                     </ViewCell>
@@ -52,10 +51,21 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Image Margin="5" Source="{Binding Image}" />
                             <Label Grid.Column="1"
+                                   FontSize="16"
                                    Text="{Binding Name}"
+                                   VerticalOptions="Center" />
+                            <Label Grid.Column="2"
+                                   FontSize="15"
+                                   Text="{Binding Price}"
+                                   VerticalOptions="Center" />
+                            <Label Grid.Column="3"
+                                   Margin="0,0,15,0"
+                                   FontSize="15"
+                                   Text="CHF"
                                    VerticalOptions="Center" />
                         </Grid>
                     </ViewCell>

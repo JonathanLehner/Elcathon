@@ -7,9 +7,6 @@
              x:Name="Root">
 
     <Grid>
-        <Grid.GestureRecognizers>
-            <TapGestureRecognizer />
-        </Grid.GestureRecognizers>
         <icon:IconLabel FontSize="80"
                         HorizontalOptions="FillAndExpand"
                         HorizontalTextAlignment="Center"

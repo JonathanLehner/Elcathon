@@ -1,18 +1,21 @@
-﻿using Prism.Commands;
+﻿using MobileApp.Views;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace MobileApp.ViewModels
 {
     public class ShoppingListPageViewModel : BindableBase, INavigationAware
     {
-        public ShoppingListPageViewModel()
+        private INavigationService _navigationService;
+        public ShoppingListPageViewModel(INavigationService navigationService)
         {
-
+            _navigationService = navigationService;
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -50,6 +53,11 @@ namespace MobileApp.ViewModels
                     OnPropertyChanged();
                 }
             }
-        } 
+        }
+
+        private ICommand _addItemCommand;
+        public ICommand AddItemCommand => _addItemCommand ?? (_addItemCommand = new DelegateCommand(async () => {
+            await _navigationService.NavigateAsync(nameof(AddShoppingItemPage));
+        }));
     }
 }

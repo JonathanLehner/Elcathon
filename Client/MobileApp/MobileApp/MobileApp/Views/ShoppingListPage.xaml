@@ -9,7 +9,6 @@
              x:Name="Root"
              prism:ViewModelLocator.AutowireViewModel="True">
     <Grid>
-        <Label Text="{Binding Text}" />
         <ListView x:Name="ShoppingListView"
                   GroupDisplayBinding="{Binding Group}"
                   HasUnevenRows="True"
@@ -76,7 +75,12 @@
 
         <local:CircleButton Margin="30"
                             HorizontalOptions="End"
-                            VerticalOptions="End" />
+                            VerticalOptions="End">
+            <ContentView.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddItemCommand}" />
+            </ContentView.GestureRecognizers>
+        </local:CircleButton>
+
     </Grid>
 
 </ContentPage>

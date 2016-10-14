@@ -28,6 +28,7 @@ namespace MobileApp
             SetupResources();
 
             await NavigationService.NavigateAsync($"{nameof(ShellPage)}/{nameof(ShellNavigationPage)}/{nameof(ShoppingListPage)}");
+            //await NavigationService.NavigateAsync($"{nameof(ShellNavigationPage)}/{nameof(AddShoppingItemPage)}");
         }
 
         protected override void RegisterTypes()
@@ -36,6 +37,7 @@ namespace MobileApp
             Container.RegisterTypeForNavigation<ShellNavigationPage>();
             Container.RegisterTypeForNavigation<WelcomePage>();
             Container.RegisterTypeForNavigation<ShoppingListPage>();
+            Container.RegisterTypeForNavigation<AddShoppingItemPage>();
         }
 
     }

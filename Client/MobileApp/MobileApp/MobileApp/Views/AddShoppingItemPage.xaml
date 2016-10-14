@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MobileApp.Views.AddShoppingItemPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:xlabs="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True">
+    <StackLayout>
+        <xlabs:ExtendedEntry Margin="12,0,12,0"
+                             Font="Large"
+                             HasBorder="false"
+                             HorizontalOptions="FillAndExpand"
+                             Placeholder="Name"
+                             PlaceholderTextColor="Gray"
+                             VerticalOptions="Center"
+                             XAlign="Start" />
+        <Grid ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Slider x:Name="Slider"
+                    Maximum="10"
+                    Minimum="0"
+                    ValueChanged="Slider_ValueChanged"
+                    Value="1" />
+            <Label Grid.Column="1"
+                   Margin="0,0,15,0"
+                   Text="{Binding Source={x:Reference Slider}, Path=Value}}" />
+        </Grid>
+
+    </StackLayout>
+</ContentPage>

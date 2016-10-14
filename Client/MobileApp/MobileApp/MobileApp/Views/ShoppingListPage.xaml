@@ -3,6 +3,7 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:local="clr-namespace:MobileApp.Views"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:xlabs="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              x:Name="Root"
@@ -72,6 +73,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <local:CircleButton Margin="30"
+                            HorizontalOptions="End"
+                            VerticalOptions="End" />
     </Grid>
 
 </ContentPage>

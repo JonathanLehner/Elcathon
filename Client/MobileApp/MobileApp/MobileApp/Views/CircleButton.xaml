@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="MobileApp.Views.CircleButton"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Name="Root">
+
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer />
+        </Grid.GestureRecognizers>
+        <icon:IconLabel FontSize="80"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        IsVisible="True"
+                        Text="md-brightness-1"
+                        TextColor="Blue"
+                        VerticalOptions="FillAndExpand"
+                        VerticalTextAlignment="Center" />
+
+        <icon:IconLabel BackgroundColor="Transparent"
+                        FontSize="35"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Opacity="1"
+                        Text="md-add"
+                        TextColor="White"
+                        VerticalOptions="FillAndExpand"
+                        VerticalTextAlignment="Center" />
+    </Grid>
+</ContentView>

@@ -40,9 +40,16 @@
     <Compile Include="DefaultResources.xaml.cs">
       <DependentUpon>DefaultResources.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AddShoppingItemPageViewModel.cs" />
     <Compile Include="ViewModels\ShoppingItemViewModel.cs" />
     <Compile Include="ViewModels\ShoppingItemGroupViewModel.cs" />
     <Compile Include="ViewModels\ShoppingListPageViewModel.cs" />
+    <Compile Include="Views\AddShoppingItemPage.xaml.cs">
+      <DependentUpon>AddShoppingItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CircleButton.xaml.cs">
+      <DependentUpon>CircleButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShellNavigationPage.xaml.cs">
       <DependentUpon>ShellNavigationPage.xaml</DependentUpon>
     </Compile>
@@ -169,6 +176,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ShoppingListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CircleButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AddShoppingItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

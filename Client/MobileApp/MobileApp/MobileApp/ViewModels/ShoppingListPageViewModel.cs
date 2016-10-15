@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace MobileApp.ViewModels
 {
@@ -16,6 +17,10 @@ namespace MobileApp.ViewModels
         public ShoppingListPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
+
+            MessagingCenter.Subscribe<ShoppingListPage, ShoppingItemViewModel>(this, "AddScanItem", (sender, vm) => {
+                ShoppingList.Where(sl => sl.Category.Name == vm.CategoryName).SingleOrDefault().Add(vm);
+            });
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -48,6 +53,7 @@ namespace MobileApp.ViewModels
                     Name = "Red bull",
                     Image = "red_bull.png",
                     Price = 1.5m,
+                    CategoryName = "Breverage",
                     Quantity = 1
                 });
                 ShoppingList = new ObservableCollection<ShoppingItemGroupViewModel>
@@ -78,5 +84,6 @@ namespace MobileApp.ViewModels
         public ICommand AddItemCommand => _addItemCommand ?? (_addItemCommand = new DelegateCommand(async () => {
             await _navigationService.NavigateAsync(nameof(AddShoppingItemPage));
         }));
+
     }
 }

@@ -15,6 +15,8 @@ namespace MobileApp.Views
                 ScanPopup.IsVisible = true;
                 await Task.Delay(3000);
                 ScanPopup.IsVisible = false;
+
+                MessagingCenter.Send(this, "AddScanItem", vm);
             });
         }
 

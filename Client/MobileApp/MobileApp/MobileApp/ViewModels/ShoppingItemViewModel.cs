@@ -13,6 +13,8 @@ namespace MobileApp.ViewModels
 
         }
 
+        public string ProductId { get; set; }
+
         public string Name { get; set; }
 
         public decimal Price
@@ -39,6 +41,6 @@ namespace MobileApp.ViewModels
                 }
             }
         }
-        public string CategoryName { get; set; }
+        public string Category { get; set; }
     }
 }

@@ -16,16 +16,16 @@ namespace MobileApp.Views
             ScannedList.SelectedItem = null;
         }
 
-        private void Button_Clicked(object sender, System.EventArgs e)
-        {
-            MessagingCenter.Send(this, "ScanItem", new ShoppingItemViewModel
-            {
-                Name = "Red bull",
-                CategoryName = "Breverage",
-                Image = "red_bull.png",
-                Quantity = 1,
-                Price = 1.5m
-            });
-        }
+        //private void Button_Clicked(object sender, System.EventArgs e)
+        //{
+        //    MessagingCenter.Send(this, "ScanItem", new ShoppingItemViewModel
+        //    {
+        //        Name = "Red bull",
+        //        CategoryName = "Breverage",
+        //        Image = "red_bull.png",
+        //        Quantity = 1,
+        //        Price = 1.5m
+        //    });
+        //}
     }
 }

@@ -33,9 +33,9 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Grid.GestureRecognizers>
+                            <!--<Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={x:Reference Root}, Path=GroupHeaderTapCommand}" CommandParameter="{Binding .}" />
-                            </Grid.GestureRecognizers>
+                            </Grid.GestureRecognizers>-->
 
                             <Label Grid.Column="0"
                                    Margin="0,0,0,0"
@@ -196,11 +196,11 @@
                     <RowDefinition Height="200" />
                     <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
-                <Image Source="red_bull.png" />
-                <Label Grid.Row="1"
+                <Image x:Name="PopupImage" />
+                <Label x:Name="PopupName"
+                       Grid.Row="1"
                        FontSize="25"
-                       HorizontalOptions="Center"
-                       Text="Red bull" />
+                       HorizontalOptions="Center" />
             </Grid>
 
         </Grid>

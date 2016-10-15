@@ -5,7 +5,7 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              Title="ScannedList"
              prism:ViewModelLocator.AutowireViewModel="True">
-    <Grid BackgroundColor="#cbcbcb">
+    <Grid>
         <ListView x:Name="ScannedList"
                   ItemSelected="ListView_ItemSelected"
                   ItemsSource="{Binding ScannedList}"
@@ -15,12 +15,12 @@
                 <DataTemplate>
                     <ViewCell>
                         <Grid Margin="0,0,15,0"
-                              ColumnSpacing="10"
+                              ColumnSpacing="5"
                               HeightRequest="60"
                               WidthRequest="25">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="120" />
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
@@ -30,9 +30,11 @@
                             <Image Margin="5" Source="{Binding Image}" />
                             <Label Grid.Column="1"
                                    FontSize="16"
+                                   LineBreakMode="TailTruncation"
                                    Text="{Binding Name}"
                                    VerticalOptions="Center" />
                             <Label Grid.Column="2"
+                                   Margin="0,0,-5,0"
                                    FontSize="16"
                                    Text="x"
                                    VerticalOptions="Center" />
@@ -45,6 +47,7 @@
                                    Text="{Binding TotalPrice}"
                                    VerticalOptions="Center" />
                             <Label Grid.Column="6"
+                                   Margin="0,0,-5,0"
                                    FontSize="15"
                                    Text="CHF"
                                    VerticalOptions="Center" />
@@ -54,11 +57,11 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Clicked="Button_Clicked"
+        <!--<Button Clicked="Button_Clicked"
                 HeightRequest="40"
                 VerticalOptions="End"
                 WidthRequest="40">
             Test
-        </Button>
+        </Button>-->
     </Grid>
 </ContentPage>

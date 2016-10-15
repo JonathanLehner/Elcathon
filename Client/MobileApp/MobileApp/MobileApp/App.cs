@@ -1,5 +1,6 @@
 ﻿using MobileApp.ViewModels;
 using MobileApp.Views;
+using Newtonsoft.Json.Linq;
 using Prism;
 using Prism.Modularity;
 using Prism.Unity;
@@ -14,30 +15,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MobileApp
-{
+{ 
+
     public partial class App : PrismApplication
     {
-        private Dictionary<string, ShoppingItemViewModel> data = new Dictionary<string, ShoppingItemViewModel>();
 
         public App(IPlatformInitializer initializer = null) : base(initializer)
         {
         }
 
-        private async Task GetDataFromServer()
-        {
-            using (var client = new RestClient(new Uri("https://ytv3odwce7.execute-api.us-west-2.amazonaws.com/prod/")))
-            {
-                var request = new RestRequest("ProductCatalog?TableName=ProductCatalog", Method.GET);
-                var result = await client.Execute<dynamic>(request);
-
-            }
-        }
-
         protected override async void OnInitialized()
-        {
-            // get data from server
-
-
+        { 
             // navigate 
             await NavigationService.NavigateAsync($"{nameof(ShellPage)}/{nameof(ShellNavigationPage)}/{nameof(ShoppingListPage)}");
         }
@@ -53,14 +41,8 @@ namespace MobileApp
 
         public void SendMessageForScan(string productId)
         {
-            MessagingCenter.Send(this, "ScanItem", new ShoppingItemViewModel
-            {
-                Name = "Red bull",
-                CategoryName = "Breverage",
-                Image = "red_bull.png",
-                Quantity = 1,
-                Price = 1.5m
-            });
+            var vm = ShoppingListPageViewModel.Data[productId];
+            MessagingCenter.Send(this, "ScanItem", vm);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,17 @@ namespace MobileApp.Views
         public Shell()
         {
             InitializeComponent();
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "ScanItem", new ShoppingItemViewModel
+            {
+                Name = "Red bull",
+                Image = "red_bull.png",
+                Quantity = 1,
+                Price = 1.5m
+            });
         }
     }
 }

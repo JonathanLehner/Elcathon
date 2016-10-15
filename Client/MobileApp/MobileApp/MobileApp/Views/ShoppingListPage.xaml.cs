@@ -1,4 +1,5 @@
 ﻿using MobileApp.ViewModels;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,6 +10,12 @@ namespace MobileApp.Views
         public ShoppingListPage()
         {
             InitializeComponent();
+
+            MessagingCenter.Subscribe<Shell,ShoppingItemViewModel>(this, "ScanItem", async (sender,vm) => {
+                ScanPopup.IsVisible = true;
+                await Task.Delay(3000);
+                ScanPopup.IsVisible = false;
+            });
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -27,5 +34,6 @@ namespace MobileApp.Views
                 });
             }
         }
+
     }
 }

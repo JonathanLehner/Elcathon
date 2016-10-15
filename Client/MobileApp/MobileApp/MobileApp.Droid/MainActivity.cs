@@ -11,6 +11,7 @@ using XLabs.Ioc;
 using XLabs.Platform.Device;
 using XLabs.Platform.Services;
 using ImageCircle.Forms.Plugin.Droid;
+using Acr.UserDialogs;
 
 namespace MobileApp.Droid
 {

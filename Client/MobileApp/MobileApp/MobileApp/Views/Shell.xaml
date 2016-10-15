@@ -3,7 +3,8 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Shell">
-    <Label HorizontalOptions="Center"
-           Text="{Binding MainText}"
-           VerticalOptions="Center" />
+    <Button Clicked="Button_Clicked"
+            HorizontalOptions="Center"
+            Text="Scan test"
+            VerticalOptions="Center" />
 </ContentPage>

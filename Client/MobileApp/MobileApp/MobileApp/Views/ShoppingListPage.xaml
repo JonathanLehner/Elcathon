@@ -124,9 +124,14 @@
             </ContentView.GestureRecognizers>
         </local:CircleButton>
 
-        <Grid>
-            <Grid BackgroundColor="White" Opacity="0.8" />
-            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+        <!--  popup  -->
+        <Grid x:Name="ScanPopup" IsVisible="False">
+            <Grid x:Name="ScanPopupBackground"
+                  BackgroundColor="White"
+                  Opacity="0.8" />
+            <Grid x:Name="ScanPopupContent"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200" />
                     <RowDefinition Height="50" />

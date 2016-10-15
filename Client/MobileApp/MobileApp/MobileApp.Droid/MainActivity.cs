@@ -10,6 +10,7 @@ using Xamarin.Forms.Platform.Android;
 using XLabs.Ioc;
 using XLabs.Platform.Device;
 using XLabs.Platform.Services;
+using ImageCircle.Forms.Plugin.Droid;
 
 namespace MobileApp.Droid
 {
@@ -35,6 +36,10 @@ namespace MobileApp.Droid
             Resolver.SetResolver(container.GetResolver());
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            // xamarin plugins init
+            ImageCircleRenderer.Init();
+
             LoadApplication(new App());
         }
     }

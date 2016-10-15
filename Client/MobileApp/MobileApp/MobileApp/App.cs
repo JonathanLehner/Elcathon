@@ -17,16 +17,8 @@ namespace MobileApp
         {
         }
 
-        public void SetupResources()
-        {
-            // setup global resources
-            Resources = new DefaultResources();
-        }
-
         protected override async void OnInitialized()
         {
-            SetupResources();
-
             await NavigationService.NavigateAsync($"{nameof(ShellPage)}/{nameof(ShellNavigationPage)}/{nameof(ShoppingListPage)}");
             //await NavigationService.NavigateAsync($"{nameof(ShellNavigationPage)}/{nameof(AddShoppingItemPage)}");
         }

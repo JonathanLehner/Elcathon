@@ -29,7 +29,7 @@ namespace MobileApp.ViewModels
 
         #region Collection
 
-        private bool _isExpanded = true;
+        private bool _isExpanded = false;
         public bool IsExpanded
         {
             get

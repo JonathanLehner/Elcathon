@@ -115,7 +115,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <local:CircleButton Margin="30"
+        <local:CircleButton Margin="25"
                             HorizontalOptions="End"
                             VerticalOptions="End">
             <ContentView.GestureRecognizers>

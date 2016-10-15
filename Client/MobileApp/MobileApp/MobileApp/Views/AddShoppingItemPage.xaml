@@ -4,11 +4,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:xlabs="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             Title="Add category"
              prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding AddToListCommand}" Text="Add" />
     </ContentPage.ToolbarItems>
-    <StackLayout Margin="10,0,10,0" Spacing="30">
+    <StackLayout Margin="10,20,10,0" Spacing="30">
         <xlabs:ExtendedEntry Margin="12,0,12,0"
                              Font="Large"
                              HasBorder="false"

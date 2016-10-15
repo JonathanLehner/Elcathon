@@ -3,6 +3,8 @@ using MobileApp.Views;
 using Prism;
 using Prism.Modularity;
 using Prism.Unity;
+using RestSharp.Portable;
+using RestSharp.Portable.HttpClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +17,29 @@ namespace MobileApp
 {
     public partial class App : PrismApplication
     {
+        private Dictionary<string, ShoppingItemViewModel> data = new Dictionary<string, ShoppingItemViewModel>();
+
         public App(IPlatformInitializer initializer = null) : base(initializer)
         {
         }
 
+        private async Task GetDataFromServer()
+        {
+            using (var client = new RestClient(new Uri("https://ytv3odwce7.execute-api.us-west-2.amazonaws.com/prod/")))
+            {
+                var request = new RestRequest("ProductCatalog?TableName=ProductCatalog", Method.GET);
+                var result = await client.Execute<dynamic>(request);
+
+            }
+        }
+
         protected override async void OnInitialized()
         {
+            // get data from server
+
+
+            // navigate 
             await NavigationService.NavigateAsync($"{nameof(ShellPage)}/{nameof(ShellNavigationPage)}/{nameof(ShoppingListPage)}");
-            //await NavigationService.NavigateAsync($"{nameof(ShellNavigationPage)}/{nameof(AddShoppingItemPage)}");
         }
 
         protected override void RegisterTypes()
@@ -34,7 +51,7 @@ namespace MobileApp
             Container.RegisterTypeForNavigation<AddShoppingItemPage>();
         }
 
-        public void SendMessageForScan()
+        public void SendMessageForScan(string productId)
         {
             MessagingCenter.Send(this, "ScanItem", new ShoppingItemViewModel
             {

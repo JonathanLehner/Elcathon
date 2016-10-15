@@ -2,26 +2,24 @@
   "Views\\ShoppingListPage.xaml": {
     "ShoppingList*": [
       {
-        "Group": "Energy drinks",
-        "ExpandIcon": "md-expand-more",
-        "Checked": "false",
+        "Group": "Drinks",
+        "Quantity": 2,
+        "ScannedQuantity": 1,
         "Items": [
           {
             "Name": "Red bull",
             "Image": "red_bull.png",
-            "Price": "1.5"
+            "Price": "1.5",
+            "Quantity": "1"
           }
         ]
       },
       {
         "Group": "Cheese",
-        "ExpandIcon": "md-expand-less",
-        "Checked": "false",
+        "Quantity": 1,
+        "ScannedQuantity": 0,
         "Items": [
-          {
-            "Name": "Emmental"
-          }
-        ]
+       ]
       }
     ]
   }

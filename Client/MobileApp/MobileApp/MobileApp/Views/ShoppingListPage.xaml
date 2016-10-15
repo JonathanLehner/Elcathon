@@ -21,11 +21,16 @@
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid HeightRequest="60"
+                        <Grid Margin="0,0,10,0"
+                              ColumnSpacing="0"
+                              HeightRequest="60"
                               HorizontalOptions="FillAndExpand"
                               VerticalOptions="CenterAndExpand">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="15" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="15" />
                             </Grid.ColumnDefinitions>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={x:Reference Root}, Path=GroupHeaderTapCommand}" CommandParameter="{Binding .}" />
@@ -39,6 +44,30 @@
                                    TextColor="Blue"
                                    VerticalTextAlignment="Center" />
 
+                            <Label Grid.Column="1"
+                                   Margin="0,0,0,0"
+                                   FontAttributes="None"
+                                   FontSize="20"
+                                   Text="{Binding Quantity}"
+                                   TextColor="Blue"
+                                   VerticalTextAlignment="Center" />
+
+                            <Label Grid.Column="2"
+                                   Margin="0,0,0,0"
+                                   FontAttributes="None"
+                                   FontSize="20"
+                                   Text="/"
+                                   TextColor="Blue"
+                                   VerticalTextAlignment="Center" />
+
+                            <Label Grid.Column="3"
+                                   Margin="0,0,0,0"
+                                   FontAttributes="None"
+                                   FontSize="20"
+                                   Text="{Binding ScannedQuantity}"
+                                   TextColor="Blue"
+                                   VerticalTextAlignment="Center" />
+
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
@@ -46,8 +75,14 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid HeightRequest="60" WidthRequest="25">
+                        <Grid Margin="0,0,15,0"
+                              ColumnSpacing="10"
+                              HeightRequest="60"
+                              WidthRequest="25">
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
@@ -59,11 +94,18 @@
                                    Text="{Binding Name}"
                                    VerticalOptions="Center" />
                             <Label Grid.Column="2"
+                                   FontSize="16"
+                                   Text="x"
+                                   VerticalOptions="Center" />
+                            <Label Grid.Column="3"
+                                   FontSize="16"
+                                   Text="{Binding Quantity}"
+                                   VerticalOptions="Center" />
+                            <Label Grid.Column="5"
                                    FontSize="15"
                                    Text="{Binding Price}"
                                    VerticalOptions="Center" />
-                            <Label Grid.Column="3"
-                                   Margin="0,0,15,0"
+                            <Label Grid.Column="6"
                                    FontSize="15"
                                    Text="CHF"
                                    VerticalOptions="Center" />

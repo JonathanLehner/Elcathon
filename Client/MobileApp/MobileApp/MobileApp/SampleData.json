@@ -16,6 +16,7 @@
     ]
   },
   "Views\\ScannedListPage.xaml": {
+    "SumText": "Sum: 250 CHF",
     "ScannedList": [
       {
         "Name": "Red bull adsfasdfasdfasdfasdfasdf",
@@ -36,5 +37,9 @@
         "TotalPrice": 3
       }
     ]
+  },
+  "Views\\PaymentPage.xaml": {
+    "PaymentText": "You have checked out the sum of {sum} CHF. Have a nice day!"
   }
+
 }

@@ -35,6 +35,7 @@ namespace MobileApp.ViewModels
 
         }
 
+
         public static Dictionary<string, ShoppingItemViewModel> Data = new Dictionary<string, ShoppingItemViewModel>();
 
         private async Task GetDataFromServer()
@@ -78,16 +79,29 @@ namespace MobileApp.ViewModels
             }
             else
             {
-                var group = new ShoppingCategoryViewModel()
-                {
-                    Name = "Juice",
-                    Quantity = 2,
-                    ScannedQuantity = 0,
-
-                };
                 ShoppingList = new ObservableCollection<ShoppingCategoryViewModel>
                 {
-                    group
+                    new ShoppingCategoryViewModel()
+                    {
+                        Name = "Juice",
+                        Quantity = 2,
+                        ScannedQuantity = 0,
+
+                    },
+                    new ShoppingCategoryViewModel()
+                    {
+                        Name = "Umbrella",
+                        Quantity = 1,
+                        ScannedQuantity = 0,
+
+                    },
+                    new ShoppingCategoryViewModel()
+                    {
+                        Name = "Raspberry Pi",
+                        Quantity = 1,
+                        ScannedQuantity = 0,
+
+                    }
                 };
             }
         }

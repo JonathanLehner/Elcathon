@@ -37,12 +37,27 @@ namespace MobileApp
             Container.RegisterTypeForNavigation<WelcomePage>();
             Container.RegisterTypeForNavigation<ShoppingListPage>();
             Container.RegisterTypeForNavigation<AddShoppingItemPage>();
+            Container.RegisterTypeForNavigation<PaymentPage>();
         }
 
         public void SendMessageForScan(string productId)
         {
-            var vm = ShoppingListPageViewModel.Data[productId];
-            MessagingCenter.Send(this, "ScanItem", vm);
+            if (productId != "04E18542BC2B80")
+            {
+                var vm = ShoppingListPageViewModel.Data[productId];
+                MessagingCenter.Send(this, "ScanItem", vm);
+            }
+            else
+            {
+                // check out and pay
+                Device.BeginInvokeOnMainThread(async()=> {
+                    await NavigationService.NavigateAsync(nameof(PaymentPage), useModalNavigation: true, animated: true, parameters: new Prism.Navigation.NavigationParameters
+                    {
+                        ["sum"] = ScannedListPageViewModel.GetTotalSum()
+                    });
+                });
+                
+            }
         }
     }
 }

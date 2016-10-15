@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MobileApp.Views.PaymentPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True">
+    <Grid HeightRequest="400"
+          HorizontalOptions="Center"
+          VerticalOptions="Center"
+          WidthRequest="300">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <icon:IconLabel FontSize="80"
+                        HeightRequest="80"
+                        HorizontalOptions="FillAndExpand"
+                        Text="md-check-circle"
+                        TextColor="#6cb558"
+                        WidthRequest="30" />
+        <Label Grid.Row="1"
+               FontSize="25"
+               FormattedText="{Binding PaymentText}" />
+    </Grid>
+</ContentPage>

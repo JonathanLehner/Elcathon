@@ -12,7 +12,8 @@ namespace MobileApp.Views
             InitializeComponent();
 
             MessagingCenter.Subscribe<App,ShoppingItemViewModel>(this, "ScanItem", (sender,vm) => {
-                Device.BeginInvokeOnMainThread(async () => {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
                     PopupName.Text = vm.Name;
                     PopupImage.Source = ImageSource.FromFile(vm.Image);
                     ScanPopup.IsVisible = true;

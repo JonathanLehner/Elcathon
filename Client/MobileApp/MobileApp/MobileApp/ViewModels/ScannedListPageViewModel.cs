@@ -11,8 +11,10 @@ namespace MobileApp.ViewModels
 {
     public class ScannedListPageViewModel : BindableBase
     {
+        private static ScannedListPageViewModel _instance;
         public ScannedListPageViewModel()
         {
+            _instance = this;
             MessagingCenter.Subscribe<ShoppingListPage, ShoppingItemViewModel>(this, "AddScanItem", (sender, vm) =>
             {
                 Device.BeginInvokeOnMainThread(() => {
@@ -23,12 +25,26 @@ namespace MobileApp.ViewModels
                     }
                     else
                     {
+                        vm.Quantity = 1;
                         ScannedList.Add(vm);
+                        OnPropertyChanged(nameof(SumText));
                     }
                 });
                 
             });
 
+        }
+
+        public FormattedString SumText
+        {
+            get
+            {
+                var fs = new FormattedString();
+                fs.Spans.Add(new Span { Text = "Sum: " });
+                fs.Spans.Add(new Span { Text = GetTotalSum().ToString(), ForegroundColor = Color.FromHex("#6cb558") });
+                fs.Spans.Add(new Span { Text = " CHF" });
+                return fs;
+            }
         }
 
         private ObservableCollection<ShoppingItemViewModel> _scannedList = new ObservableCollection<ShoppingItemViewModel>();
@@ -46,6 +62,11 @@ namespace MobileApp.ViewModels
                     OnPropertyChanged();
                 }
             }
+        }
+
+        public static decimal GetTotalSum()
+        {
+            return _instance.ScannedList.Sum(l => l.TotalPrice);
         }
 
     }

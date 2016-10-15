@@ -40,7 +40,7 @@
                                    Margin="10,0,0,0"
                                    FontAttributes="None"
                                    FontSize="20"
-                                   Text="{Binding Group}"
+                                   Text="{Binding Category.Name}"
                                    TextColor="Blue"
                                    VerticalTextAlignment="Center" />
 
@@ -48,7 +48,7 @@
                                    Margin="0,0,0,0"
                                    FontAttributes="None"
                                    FontSize="20"
-                                   Text="{Binding Quantity}"
+                                   Text="{Binding Category.Quantity}"
                                    TextColor="Blue"
                                    VerticalTextAlignment="Center" />
 
@@ -64,7 +64,7 @@
                                    Margin="0,0,0,0"
                                    FontAttributes="None"
                                    FontSize="20"
-                                   Text="{Binding ScannedQuantity}"
+                                   Text="{Binding Category.ScannedQuantity}"
                                    TextColor="Blue"
                                    VerticalTextAlignment="Center" />
 

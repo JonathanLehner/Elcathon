@@ -6,7 +6,7 @@
              xmlns:xlabs="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Done" />
+        <ToolbarItem Command="{Binding AddToListCommand}" Text="Add" />
     </ContentPage.ToolbarItems>
     <StackLayout Margin="10,0,10,0" Spacing="30">
         <xlabs:ExtendedEntry Margin="12,0,12,0"
@@ -15,6 +15,7 @@
                              HorizontalOptions="FillAndExpand"
                              Placeholder="Name"
                              PlaceholderTextColor="Gray"
+                             Text="{Binding Category.Name}"
                              VerticalOptions="Center"
                              XAlign="Start" />
         <Grid ColumnSpacing="0">
@@ -24,9 +25,9 @@
             </Grid.ColumnDefinitions>
             <Slider x:Name="Slider"
                     Maximum="10"
-                    Minimum="0"
+                    Minimum="1"
                     ValueChanged="Slider_ValueChanged"
-                    Value="1" />
+                    Value="{Binding Category.Quantity}" />
             <Label Grid.Column="1"
                    Margin="0,0,16,0"
                    FontSize="18"

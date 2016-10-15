@@ -41,6 +41,7 @@
       <DependentUpon>DefaultResources.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddShoppingItemPageViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCategoryViewModel.cs" />
     <Compile Include="ViewModels\ShoppingItemViewModel.cs" />
     <Compile Include="ViewModels\ShoppingItemGroupViewModel.cs" />
     <Compile Include="ViewModels\ShoppingListPageViewModel.cs" />

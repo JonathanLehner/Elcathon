@@ -10,9 +10,8 @@ namespace MobileApp.ViewModels
 {
     public class ShoppingItemGroupViewModel : ObservableCollection<ShoppingItemViewModel>
     {
-        public ShoppingItemGroupViewModel(string group)
+        public ShoppingItemGroupViewModel()
         {
-            Group = group;
             CollectionChanged += ShoppingItemGroupViewModel_CollectionChanged;
         }
 
@@ -22,10 +21,11 @@ namespace MobileApp.ViewModels
                 RefreshCache();
         }
 
-        public string Group { get; set; }
-        
-        public int Quantity { get; set; }
-        public int ScannedQuantity { get; set; }
+        public ShoppingCategoryViewModel Category
+        {
+            get;
+            set;
+        }
 
         #region Collection
 

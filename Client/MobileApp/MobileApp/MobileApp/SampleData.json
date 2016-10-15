@@ -2,9 +2,12 @@
   "Views\\ShoppingListPage.xaml": {
     "ShoppingList*": [
       {
-        "Group": "Drinks",
-        "Quantity": 2,
-        "ScannedQuantity": 1,
+        "Category": {
+          "Name": "Drinks",
+          "Quantity": 2,
+          "ScannedQuantity": 1
+        },
+        
         "Items": [
           {
             "Name": "Red bull",
@@ -15,11 +18,13 @@
         ]
       },
       {
-        "Group": "Cheese",
-        "Quantity": 1,
-        "ScannedQuantity": 0,
+        "Category": {
+          "Name": "Cheese",
+          "Quantity": 1,
+          "ScannedQuantity": 0
+        },
         "Items": [
-       ]
+        ]
       }
     ]
   }

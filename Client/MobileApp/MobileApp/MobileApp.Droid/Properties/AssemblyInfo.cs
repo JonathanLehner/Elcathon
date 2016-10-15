@@ -35,5 +35,3 @@ using Xamarin.Forms;
 [assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
 
 // renderers
-[assembly: ExportRenderer(typeof(Label), typeof(MobileApp.Droid.Renderers.CustomFontLabelRenderer))]
-[assembly: ExportRenderer(typeof(ActivityIndicator), typeof(UXDivers.Artina.Shared.ArtinaActivityIndicatorRenderer))]

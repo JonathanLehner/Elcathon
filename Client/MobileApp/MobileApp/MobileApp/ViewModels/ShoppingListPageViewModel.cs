@@ -24,17 +24,21 @@ namespace MobileApp.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
+            var group = new ShoppingItemGroupViewModel("Energy drinks")
+            {
+                Quantity = 2,
+                ScannedQuantity = 1,
+            };
+            group.Add(new ShoppingItemViewModel
+            {
+                Name = "Red bull",
+                Image = "red_bull.png",
+                Price = 1.5m,
+                Quantity = 1
+            });
             ShoppingList = new ObservableCollection<ShoppingItemGroupViewModel>
             {
-                new ShoppingItemGroupViewModel("Energy drinks")
-                {
-                    new ShoppingItemViewModel
-                    {
-                        Name = "Red bull",
-                        Image = "red_bull.png",
-                        Price = 1.5m
-                    }
-                }
+                group
             };
         }
 

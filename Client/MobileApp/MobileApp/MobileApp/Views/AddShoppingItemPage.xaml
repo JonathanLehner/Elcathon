@@ -5,7 +5,10 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:xlabs="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              prism:ViewModelLocator.AutowireViewModel="True">
-    <StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Done" />
+    </ContentPage.ToolbarItems>
+    <StackLayout Margin="10,0,10,0" Spacing="30">
         <xlabs:ExtendedEntry Margin="12,0,12,0"
                              Font="Large"
                              HasBorder="false"
@@ -25,7 +28,8 @@
                     ValueChanged="Slider_ValueChanged"
                     Value="1" />
             <Label Grid.Column="1"
-                   Margin="0,0,15,0"
+                   Margin="0,0,16,0"
+                   FontSize="18"
                    Text="{Binding Source={x:Reference Slider}, Path=Value}}" />
         </Grid>
 

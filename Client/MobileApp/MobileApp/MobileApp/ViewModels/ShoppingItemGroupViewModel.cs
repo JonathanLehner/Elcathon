@@ -23,6 +23,11 @@ namespace MobileApp.ViewModels
         }
 
         public string Group { get; set; }
+        
+        public int Quantity { get; set; }
+        public int ScannedQuantity { get; set; }
+
+        #region Collection
 
         private bool _isExpanded = true;
         public bool IsExpanded
@@ -96,6 +101,7 @@ namespace MobileApp.ViewModels
             IsExpanded = !IsExpanded;
 
             _toggling = false;
-        }
+        } 
+        #endregion
     }
 }

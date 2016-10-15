@@ -19,7 +19,21 @@ namespace MobileApp.ViewModels
             _navigationService = navigationService;
 
             MessagingCenter.Subscribe<ShoppingListPage, ShoppingItemViewModel>(this, "AddScanItem", (sender, vm) => {
-                ShoppingList.Where(sl => sl.Category.Name == vm.CategoryName).SingleOrDefault().Add(vm);
+                var items = ShoppingList.Where(sl => sl.Category.Name == vm.CategoryName).SingleOrDefault() as ShoppingItemGroupViewModel;
+                ShoppingItemViewModel target;
+                if ((target = items.Cache.SingleOrDefault(i => i.Name == vm.Name))!=null)
+                {
+                    // add quantity
+                    target.Quantity++;
+                }
+                else
+                {
+                    // add to items
+                    items.AddToCache(vm);
+                }
+
+                // update scanned quantity
+                items.Category.ScannedQuantity = items.Cache.Sum(i => i.Quantity);
             });
         }
 
@@ -44,18 +58,10 @@ namespace MobileApp.ViewModels
                     {
                         Name = "Breverage",
                         Quantity = 2,
-                        ScannedQuantity = 1,
+                        ScannedQuantity = 0,
                     }
 
                 };
-                group.Add(new ShoppingItemViewModel
-                {
-                    Name = "Red bull",
-                    Image = "red_bull.png",
-                    Price = 1.5m,
-                    CategoryName = "Breverage",
-                    Quantity = 1
-                });
                 ShoppingList = new ObservableCollection<ShoppingItemGroupViewModel>
                 {
                     group

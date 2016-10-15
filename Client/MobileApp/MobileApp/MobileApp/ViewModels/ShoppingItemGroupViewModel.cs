@@ -68,6 +68,13 @@ namespace MobileApp.ViewModels
 
         private List<ShoppingItemViewModel> _itemCache = new List<ShoppingItemViewModel>();
 
+        public void AddToCache(ShoppingItemViewModel vm)
+        {
+            _itemCache.Add(vm);
+        }
+
+        public List<ShoppingItemViewModel> Cache => _itemCache;
+
         private void RefreshCache()
         {
             _itemCache.Clear();

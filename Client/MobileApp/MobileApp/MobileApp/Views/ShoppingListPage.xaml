@@ -22,54 +22,55 @@
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid Margin="0,0,10,0"
-                              ColumnSpacing="0"
-                              HeightRequest="60"
-                              HorizontalOptions="FillAndExpand"
-                              VerticalOptions="CenterAndExpand">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="15" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="15" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:Reference Root}, Path=GroupHeaderTapCommand}" CommandParameter="{Binding .}" />
-                            </Grid.GestureRecognizers>
+                        <Grid BackgroundColor="{Binding Category.BackgroundColor}">
+                            <Grid Margin="0,0,10,0"
+                                  ColumnSpacing="0"
+                                  HeightRequest="60"
+                                  HorizontalOptions="FillAndExpand"
+                                  VerticalOptions="CenterAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="15" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="15" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference Root}, Path=GroupHeaderTapCommand}" CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
 
-                            <Label Grid.Column="0"
-                                   Margin="10,0,0,0"
-                                   FontAttributes="None"
-                                   FontSize="20"
-                                   Text="{Binding Category.Name}"
-                                   TextColor="Blue"
-                                   VerticalTextAlignment="Center" />
+                                <Label Grid.Column="0"
+                                       Margin="10,0,0,0"
+                                       FontAttributes="None"
+                                       FontSize="20"
+                                       Text="{Binding Category.Name}"
+                                       TextColor="Blue"
+                                       VerticalTextAlignment="Center" />
 
-                            <Label Grid.Column="1"
-                                   Margin="0,0,0,0"
-                                   FontAttributes="None"
-                                   FontSize="20"
-                                   Text="{Binding Category.Quantity}"
-                                   TextColor="Blue"
-                                   VerticalTextAlignment="Center" />
+                                <Label Grid.Column="1"
+                                       Margin="0,0,0,0"
+                                       FontAttributes="None"
+                                       FontSize="20"
+                                       Text="{Binding Category.Quantity}"
+                                       TextColor="Blue"
+                                       VerticalTextAlignment="Center" />
 
-                            <Label Grid.Column="2"
-                                   Margin="0,0,0,0"
-                                   FontAttributes="None"
-                                   FontSize="20"
-                                   Text="/"
-                                   TextColor="Blue"
-                                   VerticalTextAlignment="Center" />
+                                <Label Grid.Column="2"
+                                       Margin="0,0,0,0"
+                                       FontAttributes="None"
+                                       FontSize="20"
+                                       Text="/"
+                                       TextColor="Blue"
+                                       VerticalTextAlignment="Center" />
 
-                            <Label Grid.Column="3"
-                                   Margin="0,0,0,0"
-                                   FontAttributes="None"
-                                   FontSize="20"
-                                   Text="{Binding Category.ScannedQuantity}"
-                                   TextColor="Blue"
-                                   VerticalTextAlignment="Center" />
-
+                                <Label Grid.Column="3"
+                                       FontAttributes="None"
+                                       FontSize="20"
+                                       Text="{Binding Category.ScannedQuantity}"
+                                       TextColor="Blue"
+                                       VerticalTextAlignment="Center" />
+                            </Grid>
                         </Grid>
+
                     </ViewCell>
                 </DataTemplate>
             </ListView.GroupHeaderTemplate>
@@ -104,7 +105,7 @@
                                    VerticalOptions="Center" />
                             <Label Grid.Column="5"
                                    FontSize="15"
-                                   Text="{Binding Price}"
+                                   Text="{Binding TotalPrice}"
                                    VerticalOptions="Center" />
                             <Label Grid.Column="6"
                                    FontSize="15"

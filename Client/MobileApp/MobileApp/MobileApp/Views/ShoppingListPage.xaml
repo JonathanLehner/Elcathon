@@ -9,8 +9,65 @@
              xmlns:xlabs="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              x:Name="Root"
              prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeColor">#6cb558</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid>
         <ListView x:Name="ShoppingListView"
+                  ItemSelected="ListView_ItemSelected"
+                  ItemsSource="{Binding ShoppingList}"
+                  RowHeight="60"
+                  SeparatorColor="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="20,0,0,0"
+                              ColumnSpacing="0"
+                              HeightRequest="60"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference Root}, Path=GroupHeaderTapCommand}" CommandParameter="{Binding .}" />
+                            </Grid.GestureRecognizers>
+
+                            <Label Grid.Column="0"
+                                   Margin="0,0,0,0"
+                                   FontAttributes="None"
+                                   FontSize="20"
+                                   Text="{Binding QuantityLeft}"
+                                   TextColor="#6cb558"
+                                   VerticalTextAlignment="Center" />
+                            <Label Grid.Column="1"
+                                   Margin="0,0,0,0"
+                                   FontAttributes="None"
+                                   FontSize="20"
+                                   Text="x"
+                                   TextColor="#6cb558"
+                                   VerticalTextAlignment="Center" />
+                            <Label Grid.Column="2"
+                                   Margin="10,0,0,0"
+                                   FontAttributes="None"
+                                   FontSize="20"
+                                   Text="{Binding Name}"
+                                   TextColor="#6cb558"
+                                   VerticalTextAlignment="Center" />
+
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <!--<ListView x:Name="ShoppingListView"
                   GroupDisplayBinding="{Binding Group}"
                   HasUnevenRows="True"
                   IsGroupingEnabled="true"
@@ -18,7 +75,9 @@
                   ItemsSource="{Binding ShoppingList}"
                   RowHeight="40"
                   SeparatorColor="Black">
-            <!--  Group header template  -->
+        -->
+        <!--  Group header template  -->
+        <!--
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -115,9 +174,9 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
 
-        <local:CircleButton Margin="25"
+        <local:CircleButton Margin="20"
                             HorizontalOptions="End"
                             VerticalOptions="End">
             <ContentView.GestureRecognizers>

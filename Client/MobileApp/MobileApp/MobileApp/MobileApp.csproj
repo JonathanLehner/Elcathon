@@ -38,6 +38,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Colors.cs" />
     <Compile Include="ViewModels\AddShoppingItemPageViewModel.cs" />
+    <Compile Include="ViewModels\ScannedListPageViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCategoryViewModel.cs" />
     <Compile Include="ViewModels\ShoppingItemViewModel.cs" />
     <Compile Include="ViewModels\ShoppingItemGroupViewModel.cs" />
@@ -48,13 +49,13 @@
     <Compile Include="Views\CircleButton.xaml.cs">
       <DependentUpon>CircleButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ScannedListPage.xaml.cs">
+      <DependentUpon>ScannedListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShellNavigationPage.xaml.cs">
       <DependentUpon>ShellNavigationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Shell.xaml.cs">
-      <DependentUpon>Shell.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
     </Compile>
@@ -170,12 +171,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Shell.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\ShellNavigationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -195,6 +190,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\AddShoppingItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ScannedListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

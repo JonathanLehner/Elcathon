@@ -88,6 +88,7 @@ namespace MobileApp.Droid
             //Push Notification arrived - print out the keys/values
             if (intent != null && intent.Extras != null)
                 //foreach (var key in intent.Extras.KeySet())
+                //intent.Extras.GetBundle("")
                 ((App)App.Current).SendMessageForScan();
         }
 

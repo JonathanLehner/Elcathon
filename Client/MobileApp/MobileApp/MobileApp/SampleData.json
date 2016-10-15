@@ -1,30 +1,39 @@
 ﻿{
   "Views\\ShoppingListPage.xaml": {
-    "ShoppingList*": [
+    "ShoppingList": [
       {
-        "Category": {
-          "Name": "Drinks",
-          "Quantity": 2,
-          "ScannedQuantity": 1
-        },
-        
-        "Items": [
-          {
-            "Name": "Red bull",
-            "Image": "red_bull.png",
-            "Price": "1.5",
-            "Quantity": "1"
-          }
-        ]
+        "Name": "Drinks",
+        "Quantity": 2,
+        "ScannedQuantity": 1,
+        "QuantityLeft": 1
       },
       {
-        "Category": {
-          "Name": "Cheese",
-          "Quantity": 1,
-          "ScannedQuantity": 0
-        },
-        "Items": [
-        ]
+        "Name": "Cheese",
+        "Quantity": 1,
+        "ScannedQuantity": 0,
+        "QuantityLeft": 1
+      }
+    ]
+  },
+  "Views\\ScannedListPage.xaml": {
+    "ScannedList": [
+      {
+        "Name": "Red bull",
+        "Image": "red_bull.png",
+        "Quantity": 1,
+        "TotalPrice": 3
+      },
+      {
+        "Name": "Red bull",
+        "Image": "red_bull.png",
+        "Quantity": 1,
+        "TotalPrice": 3
+      },
+      {
+        "Name": "Red bull",
+        "Image": "red_bull.png",
+        "Quantity": 1,
+        "TotalPrice": 3
       }
     ]
   }

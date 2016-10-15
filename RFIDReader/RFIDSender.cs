@@ -11,11 +11,10 @@ namespace RFIDReader
     {
         internal void SendRFID(string uid)
         {
-            var client = new RestClient("http://example.com");
-            // client.Authenticator = new HttpBasicAuthenticator(username, password);
+            var client = new RestClient("https://ytv3odwce7.execute-api.us-west-2.amazonaws.com/prod/");
 
-            var request = new RestRequest("scan", Method.POST);
-            request.AddParameter("uid", uid); 
+            var request = new RestRequest("ScanItem", Method.GET);
+            request.AddParameter("ProductId", uid); 
 
             // execute the request
             IRestResponse response = client.Execute(request);

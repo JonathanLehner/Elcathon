@@ -19,22 +19,16 @@ namespace MobileApp.ViewModels
             _navigationService = navigationService;
 
             MessagingCenter.Subscribe<ShoppingListPage, ShoppingItemViewModel>(this, "AddScanItem", (sender, vm) => {
-                var items = ShoppingList.Where(sl => sl.Category.Name == vm.CategoryName).SingleOrDefault() as ShoppingItemGroupViewModel;
-                ShoppingItemViewModel target;
-                if ((target = items.Cache.SingleOrDefault(i => i.Name == vm.Name))!=null)
+                var cat = ShoppingList.Where(sl => sl.Name == vm.CategoryName).SingleOrDefault() as ShoppingCategoryViewModel;
+                if (cat == null) return;
+                cat.ScannedQuantity++;
+                if(cat.QuantityLeft<=0)
                 {
-                    // add quantity
-                    target.Quantity++;
+                    // remove cat from list
+                    ShoppingList.Remove(cat);
                 }
-                else
-                {
-                    // add to items
-                    items.AddToCache(vm);
-                }
-
-                // update scanned quantity
-                items.Category.ScannedQuantity = items.Cache.Sum(i => i.Quantity);
             });
+
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -45,32 +39,26 @@ namespace MobileApp.ViewModels
         {
             if (parameters.ContainsKey("AddCategory"))
             {
-                ShoppingList.Add(new ShoppingItemGroupViewModel
-                {
-                    Category = (ShoppingCategoryViewModel) parameters["AddCategory"]
-                });
+                ShoppingList.Add((ShoppingCategoryViewModel)parameters["AddCategory"]);
             }
             else
             {
-                var group = new ShoppingItemGroupViewModel()
+                var group = new ShoppingCategoryViewModel()
                 {
-                    Category = new ShoppingCategoryViewModel
-                    {
-                        Name = "Breverage",
-                        Quantity = 2,
-                        ScannedQuantity = 0,
-                    }
+                    Name = "Breverage",
+                    Quantity = 2,
+                    ScannedQuantity = 0,
 
                 };
-                ShoppingList = new ObservableCollection<ShoppingItemGroupViewModel>
+                ShoppingList = new ObservableCollection<ShoppingCategoryViewModel>
                 {
                     group
                 };
             }
         }
 
-        private ObservableCollection<ShoppingItemGroupViewModel> _shoppingList;
-        public ObservableCollection<ShoppingItemGroupViewModel> ShoppingList
+        private ObservableCollection<ShoppingCategoryViewModel> _shoppingList;
+        public ObservableCollection<ShoppingCategoryViewModel> ShoppingList
         {
             get
             {

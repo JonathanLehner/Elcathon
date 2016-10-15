@@ -14,7 +14,7 @@ namespace MobileApp.Views
         {
             InitializeComponent();
 
-            Master = new Shell();
+            Master = new ScannedListPage();
             Detail = new NavigationPage(new ContentPage());
 
         }

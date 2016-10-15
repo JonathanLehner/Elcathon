@@ -32,9 +32,12 @@ namespace MobileApp.ViewModels
                     _scannedQuantity = value;
                     OnPropertyChanged();
                     OnPropertyChanged(nameof(BackgroundColor));
+                    OnPropertyChanged(nameof(QuantityLeft));
                 }
             }
         }
+
+        public int QuantityLeft => Quantity - ScannedQuantity;
 
         public Color BackgroundColor => ScannedQuantity >= Quantity ? Color.FromHex("#b3e0ff") : Color.Transparent;
     }

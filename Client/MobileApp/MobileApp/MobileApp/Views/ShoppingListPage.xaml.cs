@@ -14,12 +14,23 @@ namespace MobileApp.Views
             MessagingCenter.Subscribe<App,ShoppingItemViewModel>(this, "ScanItem", (sender,vm) => {
                 Device.BeginInvokeOnMainThread(async () => {
                     ScanPopup.IsVisible = true;
-                    await Task.Delay(3000);
+                    await Task.Delay(2000);
                     ScanPopup.IsVisible = false;
 
                     MessagingCenter.Send(this, "AddScanItem", vm);
                 });
                
+            });
+
+            MessagingCenter.Subscribe<ScannedListPage, ShoppingItemViewModel>(this, "ScanItem", (sender, vm) => {
+                Device.BeginInvokeOnMainThread(async () => {
+                    ScanPopup.IsVisible = true;
+                    await Task.Delay(2000);
+                    ScanPopup.IsVisible = false;
+
+                    MessagingCenter.Send(this, "AddScanItem", vm);
+                });
+
             });
         }
 

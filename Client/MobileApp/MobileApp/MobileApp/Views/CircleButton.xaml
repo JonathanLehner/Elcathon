@@ -12,7 +12,7 @@
                         HorizontalTextAlignment="Center"
                         IsVisible="True"
                         Text="md-brightness-1"
-                        TextColor="Blue"
+                        TextColor="#6cb558"
                         VerticalOptions="FillAndExpand"
                         VerticalTextAlignment="Center" />
 

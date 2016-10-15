@@ -1,4 +1,5 @@
-﻿using MobileApp.Views;
+﻿using MobileApp.ViewModels;
+using MobileApp.Views;
 using Prism;
 using Prism.Modularity;
 using Prism.Unity;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace MobileApp
 {
@@ -32,5 +34,16 @@ namespace MobileApp
             Container.RegisterTypeForNavigation<AddShoppingItemPage>();
         }
 
+        public void SendMessageForScan()
+        {
+            MessagingCenter.Send(this, "ScanItem", new ShoppingItemViewModel
+            {
+                Name = "Red bull",
+                CategoryName = "Breverage",
+                Image = "red_bull.png",
+                Quantity = 1,
+                Price = 1.5m
+            });
+        }
     }
 }

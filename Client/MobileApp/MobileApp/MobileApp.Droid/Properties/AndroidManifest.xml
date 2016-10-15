@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="elcathon.shoppy" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="15" />
 	<application android:label="MobileApp.Droid"></application>
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="elcathon.shoppy.permission.C2D_MESSAGE" />
+	<permission android:name="elcathon.shoppy.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 </manifest>

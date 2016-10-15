@@ -63,6 +63,7 @@ namespace MobileApp.Droid
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::MobileApp.Droid.Resource.Styleable.ProgressWheel_ahText;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::MobileApp.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::MobileApp.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
+			global::Gcm.Client.Resource.String.library_name = global::MobileApp.Droid.Resource.String.library_name;
 			global::Splat.Resource.String.library_name = global::MobileApp.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MobileApp.Droid.Resource.Attribute.actionBarSize;
 			global::XLabs.Forms.Droid.Resource.Animation.abc_fade_in = global::MobileApp.Droid.Resource.Animation.abc_fade_in;

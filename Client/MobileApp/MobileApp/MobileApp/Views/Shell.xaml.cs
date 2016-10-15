@@ -18,14 +18,7 @@ namespace MobileApp.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "ScanItem", new ShoppingItemViewModel
-            {
-                Name = "Red bull",
-                CategoryName = "Breverage",
-                Image = "red_bull.png",
-                Quantity = 1,
-                Price = 1.5m
-            });
+            
         }
     }
 }

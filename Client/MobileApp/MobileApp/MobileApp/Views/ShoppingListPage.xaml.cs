@@ -11,12 +11,15 @@ namespace MobileApp.Views
         {
             InitializeComponent();
 
-            MessagingCenter.Subscribe<Shell,ShoppingItemViewModel>(this, "ScanItem", async (sender,vm) => {
-                ScanPopup.IsVisible = true;
-                await Task.Delay(3000);
-                ScanPopup.IsVisible = false;
+            MessagingCenter.Subscribe<App,ShoppingItemViewModel>(this, "ScanItem", (sender,vm) => {
+                Device.BeginInvokeOnMainThread(async () => {
+                    ScanPopup.IsVisible = true;
+                    await Task.Delay(3000);
+                    ScanPopup.IsVisible = false;
 
-                MessagingCenter.Send(this, "AddScanItem", vm);
+                    MessagingCenter.Send(this, "AddScanItem", vm);
+                });
+               
             });
         }
 
